@@ -9,9 +9,11 @@ from general.models import Women
 
 
 class WomenSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Women
-        fields = ('id', 'content', 'cat')
+        fields = ("__all__")
 
     # title = serializers.CharField(max_length=255)
     # content = serializers.CharField()
